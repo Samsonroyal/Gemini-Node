@@ -1,12 +1,14 @@
+require('dotenv').config() // I added this line after installing the dotenv package
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-// Access your API key as an environment variable (see "Set up your API key" above)
-const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+
+
+ const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 
 async function run() {
-  console.log("first");
+ 
   // For text-only input, use the gemini-pro model
-  const model = genAI.getGenerativeModel({ model: "gemini-pro-vision" });
+  const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
   const prompt = "Write a story about a magic backpack.";
 
