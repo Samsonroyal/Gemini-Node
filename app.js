@@ -13,7 +13,7 @@ async function run() {
   const prompt = "Write a story about a magic backpack.";
 
   // Use streaming with text-only input
-  const result = await model.generateContent(prompt);
+  const result = await model.generateContentStream(prompt);
   console.log("Here", result);
 
   const response = result.response;
