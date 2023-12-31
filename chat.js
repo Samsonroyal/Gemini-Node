@@ -1,3 +1,4 @@
+require('dotenv').config()
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 // Access your API key as an environment variable (see "Set up your API key" above)
@@ -11,7 +12,7 @@ async function run() {
     history: [
       {
         role: "user",
-        parts: "Hello, I have 2 dogs in my house.",
+        parts: "Hello, I am a software engineer interested in machine learning, AI and quantum computing.",
       },
       {
         role: "model",
@@ -19,13 +20,13 @@ async function run() {
       },
     ],
     generationConfig: {
-      maxOutputTokens: 100,
+      maxOutputTokens: 600,
     },
   });
 
-  const msg = "How many paws are in my house?";
+  const msg = "What's the best path to start building real world quantum computing projects?";
 
-  const result = await chat.sendMessage(msg);
+  const result = await chat.sendMessageStream(msg);
   const response = await result.response;
   const text = response.text();
   console.log(text);
